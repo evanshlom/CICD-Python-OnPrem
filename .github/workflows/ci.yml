@@ -1,0 +1,14 @@
+name: Python Docker CI
+on: [push]
+
+jobs:
+  build-and-run:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t python-hello .
+
+      - name: Run container
+        run: docker run python-hello
